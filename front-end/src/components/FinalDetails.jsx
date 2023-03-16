@@ -1,6 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// local
+const profilePostApi = 'http://127.0.0.1:8000/api/profile/'
+// prod
+// const profilePostApi = 'http://127.0.0.1:8000/api/profile/'
 
 const FinalDetails = () => {
 
@@ -31,7 +35,7 @@ const FinalDetails = () => {
               }
         }
 
-        fetch( 'http://127.0.0.1:8000/api/profile/', {
+        fetch( profilePostApi, {
             method: 'POST',
             'Content-type': 'multipart/form-data',
             body: formData

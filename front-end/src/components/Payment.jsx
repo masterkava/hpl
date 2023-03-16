@@ -1,7 +1,6 @@
 import React, {useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './PrctForm.css';
-import PaymentImage from "../media/images/Payment_Image.png";
 
 const Payment = () => {
 
@@ -39,7 +38,6 @@ const Payment = () => {
         localStorage.setItem("payment", payment);
         localStorage.setItem("paymentType", paymentType);
         localStorage.setItem("paymentStatus", paymentStatus);
-
     }
 
 
@@ -119,10 +117,6 @@ const Payment = () => {
                         </div>
                         <small className="errorOnce"><i className="fa fa-asterisk" aria-hidden="true"></i> choose at least one</small>
                     </div>
-
-
-                    <img src={PaymentImage} alt="Flowers in Chania"></img>
-
 
                     <div className='buttons__div' >
                         <div className="form-item">

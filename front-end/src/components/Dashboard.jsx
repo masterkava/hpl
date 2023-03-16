@@ -1,37 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { DataGrid, GridRowsProp, GridColDef, GridToolbar  } from '@mui/x-data-grid';
 
-const rows = [
-  { 
-    id: 1, 
-    fname: 'Mayur', 
-    lname: 'Kava',
-    yuvak_type: 'Existing',
-    mobile_number: '9725988147',
-    date_of_birth: '25/11/1995',
-    sabha_location: 'TF',
-    reference: 'Mohit Darji',
-    good_at: 'Batsman',
-    hand: 'Right',
-    tshirt_size: 'XL',
-    tshirt_name: 'Mayur'
-},
-{ 
-    id: 2, 
-    fname: 'Mayur', 
-    lname: 'Kava',
-    yuvak_type: 'New',
-    mobile_number: '9725988147',
-    date_of_birth: '25/11/1995',
-    sabha_location: 'TF',
-    reference: 'Mohit Darji',
-    good_at: 'Batsman',
-    hand: 'Right',
-    tshirt_size: 'XL',
-    tshirt_name: 'Mayur'
-},
+// local
+const getReqApi = 'http://127.0.0.1:8000/api/profile/';
+// prod
+// const getReqApi = 'http://65.0.151.183/api/profile/';
 
-];
 
 const columns = [
   { field: 'fname', headerName: 'First Name' },
@@ -52,9 +26,8 @@ export default function Dashboard() {
 
     const [data, setData] = useState([]);
 
-
     useEffect( () => {
-        fetch('http://127.0.0.1:8000/api/profile/')
+        fetch(getReqApi)
         .then((response)=> response.json())
         .then((data) => {
             console.log(data)
