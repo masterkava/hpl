@@ -12,10 +12,11 @@ const PlayerDetails = () => {
 
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
-        let path = '/merchendisedetails'; 
+        let path = '/merchendisedetails';
+        localStorage.setItem('goodAt',goodAt);
+        localStorage.setItem('whichHand', whichHand);
         navigate(path);
     }
-
 
     const handleHandedPlayerChange = (event) => {
         setWhichHand(event.target.value);

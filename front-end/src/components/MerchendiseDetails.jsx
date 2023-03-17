@@ -12,6 +12,8 @@ const PrctForm = () => {
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
         let path = '/finaldetails'; 
+        localStorage.setItem("tshirtSize", tshirtSize);
+        localStorage.setItem( 'tshirtName', tshirtName );
         navigate(path);
     }
 
@@ -36,9 +38,9 @@ const PrctForm = () => {
     }
 
     const handleSubmit = (event) => {
+        event.preventDefault();
         localStorage.setItem("tshirtSize", tshirtSize);
         localStorage.setItem( 'tshirtName', tshirtName );
-        event.preventDefault()
         
     }
 

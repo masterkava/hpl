@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import { DataGrid, GridRowsProp, GridColDef, GridToolbar  } from '@mui/x-data-grid';
 
 // local
-const getReqApi = 'http://127.0.0.1:8000/api/profile/';
+//const getReqApi = 'http://127.0.0.1:8000/api/profile/';
 // prod
-// const getReqApi = 'http://65.0.151.183/api/profile/';
+const getReqApi = 'http://65.0.151.183:8000/api/profile/';
 
 
 const columns = [

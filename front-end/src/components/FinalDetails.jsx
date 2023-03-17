@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // local
-const profilePostApi = 'http://127.0.0.1:8000/api/profile/'
+const profilePostApi = 'http://65.0.151.183:8000/api/profile/'
 // prod
 // const profilePostApi = 'http://127.0.0.1:8000/api/profile/'
 

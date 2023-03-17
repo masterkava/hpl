@@ -16,7 +16,14 @@ const PrctForm = () => {
 
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
-        let path = '/playerdetails'; 
+        let path = '/playerdetails';
+        localStorage.setItem("fname", fname);
+        localStorage.setItem("lname", lname);
+        localStorage.setItem("yuvakType", yuvakType);
+        localStorage.setItem("phoneNumber", parseInt(phoneNumber));
+        localStorage.setItem("sabhaLocation", sabhaLocation);
+        localStorage.setItem("reference", reference);
+        localStorage.setItem("birthDate", birthDate);
         navigate(path);
     }
 
