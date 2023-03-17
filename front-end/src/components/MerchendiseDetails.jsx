@@ -6,8 +6,8 @@ import './PrctForm.css';
 const PrctForm = () => {
 
     // const [fname, setFname] = useState(localStorage.getItem("fname") || undefined)
-    const [tshirtSize, setTshirtSize] = useState(localStorage.getItem("tshirtSize") || undefined) 
-    const [tshirtName, setTshirtName] = useState(localStorage.getItem("tshirtName") || undefined)
+    const [tshirtSize, setTshirtSize] = useState(localStorage.getItem("tshirtSize")=='undefined' ? "" : localStorage.getItem("tshirtSize")) 
+    const [tshirtName, setTshirtName] = useState(localStorage.getItem("tshirtName") == 'undefined' ? "" : localStorage.getItem("tshirtName"))
 
     let navigate = useNavigate(); 
     const routeChange = () =>{ 

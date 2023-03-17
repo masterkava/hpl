@@ -6,8 +6,8 @@ import './PrctForm.css';
 const PlayerDetails = () => {
 
    
-    const [goodAt, setGoodAt] = useState(localStorage.getItem("goodAt") || undefined);
-    const [whichHand, setWhichHand] = useState(localStorage.getItem("whichHand") || undefined);
+    const [goodAt, setGoodAt] = useState(localStorage.getItem("goodAt") == 'undefined' ? "" : localStorage.getItem("goodAt"));
+    const [whichHand, setWhichHand] = useState(localStorage.getItem("whichHand")=='undefined' ?"":localStorage.getItem("whichHand"));
 
 
     let navigate = useNavigate(); 

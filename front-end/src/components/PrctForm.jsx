@@ -5,13 +5,13 @@ import './PrctForm.css';
 
 const PrctForm = () => {
 
-    const [fname, setFname] = useState(localStorage.getItem("fname") || undefined)
-    const [lname, setLname] = useState(localStorage.getItem("lname") || undefined)
-    const [yuvakType, setYuvakType] = useState(localStorage.getItem("yuvakType") || undefined)
-    const [phoneNumber, setPhoneNumber] = useState(localStorage.getItem("phoneNumber") || undefined)
-    const [sabhaLocation, setSabhaLocation] = useState(localStorage.getItem("sabhaLocation") || undefined)
-    const [birthDate, setBirthDate] = useState(localStorage.getItem("birthDate") || undefined)
-    const [reference, setReference] = useState(localStorage.getItem("reference") || undefined)
+    const [fname, setFname] = useState(localStorage.getItem("fname") == 'undefined' ? "" : localStorage.getItem("fname"))
+    const [lname, setLname] = useState(localStorage.getItem("lname") == 'undefined' ? "" : localStorage.getItem("lname"))
+    const [yuvakType, setYuvakType] = useState(localStorage.getItem("yuvakType") == 'undefined' ? "" : localStorage.getItem("yuvakType"))
+    const [phoneNumber, setPhoneNumber] = useState(localStorage.getItem("phoneNumber") == 'undefined' ? "" : localStorage.getItem("phoneNumber"))
+    const [sabhaLocation, setSabhaLocation] = useState(localStorage.getItem("sabhaLocation") == 'undefined' ? "" : localStorage.getItem("sabhaLocation"))
+    const [birthDate, setBirthDate] = useState(localStorage.getItem("birthDate") == 'undefined' ? "" : localStorage.getItem("birthDate"))
+    const [reference, setReference] = useState(localStorage.getItem("reference") == 'undefined' ? "" : localStorage.getItem("reference"))
 
 
     let navigate = useNavigate(); 
