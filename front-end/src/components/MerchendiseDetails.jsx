@@ -6,19 +6,21 @@ import './PrctForm.css';
 const PrctForm = () => {
 
     // const [fname, setFname] = useState(localStorage.getItem("fname") || undefined)
-    const [tshirtSize, setTshirtSize] = useState(localStorage.getItem("tshirtSize")=='undefined' ? "" : localStorage.getItem("tshirtSize")) 
-    const [tshirtName, setTshirtName] = useState(localStorage.getItem("tshirtName") == 'undefined' ? "" : localStorage.getItem("tshirtName"))
+    const [tshirtSize, setTshirtSize] = useState(localStorage.getItem("tshirtSize")==='undefined' || localStorage.getItem("tshirtSize") === 'null' || localStorage.getItem("tshirtSize") === 'NaN' ? "" : localStorage.getItem("tshirtSize")) 
+    const [tshirtName, setTshirtName] = useState(localStorage.getItem("tshirtName") === 'undefined' || localStorage.getItem("tshirtName") === 'null' || localStorage.getItem("tshirtName") === 'NaN' ? "" : localStorage.getItem("tshirtName"))
 
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
-        let path = '/finaldetails'; 
-        localStorage.setItem("tshirtSize", tshirtSize);
-        localStorage.setItem( 'tshirtName', tshirtName );
+        let path = '/finaldetails';
+        if (!tshirtSize || !tshirtSize === "" || tshirtSize === "NaN" || tshirtSize === "null" || tshirtSize === "undefined"){
+            return alert("Tshirt Size is required.")
+        } 
+        if (!tshirtName || !tshirtName === "" || tshirtName === "NaN" || tshirtName === "null" || tshirtName === 'undefined'){
+            return alert("Tshirt Name is required.")
+        } 
+        localStorage.setItem("tshirtSize", tshirtSize === 'undefined' || tshirtSize === 'NaN' || tshirtSize === 'null' ? '' : tshirtSize);
+        localStorage.setItem( 'tshirtName', tshirtName === 'undefined' || tshirtName === 'NaN' || tshirtName === 'null' ? '' : tshirtName );
         navigate(path);
-    }
-
-    const op = {
-        tshirtSize: tshirtSize,
     }
 
     // const handleTshirtSizeChange = (event) => {
@@ -39,9 +41,14 @@ const PrctForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        localStorage.setItem("tshirtSize", tshirtSize);
-        localStorage.setItem( 'tshirtName', tshirtName );
-        
+        if (!tshirtSize || tshirtSize === "" || tshirtSize === "NaN" || tshirtSize === "null" || tshirtSize === "undefined"){
+            return alert("Tshirt Size is required.")
+        } 
+        if (!tshirtName || tshirtName === "" || tshirtName === "NaN" || tshirtName === "null" || tshirtName === 'undefined'){
+            return alert("Tshirt Name is required.")
+        }
+        localStorage.setItem("tshirtSize", tshirtSize === 'undefined' || tshirtSize === 'NaN' || tshirtSize === 'null' ? '' : tshirtSize);
+        localStorage.setItem( 'tshirtName', tshirtName === 'undefined' || tshirtName === 'NaN' || tshirtName === 'null' ? '' : tshirtName );
     }
 
 
@@ -49,8 +56,8 @@ const PrctForm = () => {
     <div className="row">
         <section className="section">
             <header>
-                <h3>Registeration for HPL</h3>
-                <h5 >Merchendise Details</h5>
+                <h3>Registration for HPL</h3>
+                <h5 >Merchandise Details</h5>
             </header>
             <main>
                 <form onSubmit={handleSubmit} >

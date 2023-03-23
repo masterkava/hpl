@@ -2,7 +2,7 @@ from django.db import models
 
 
 def upload_path(instance, filename):
-    return '/'.join(['images', str(instance.fname), filename])
+    return '/'.join(['images', str(instance.fname)+str(instance.id), filename])
 
 class Profile(models.Model):
     id = models.AutoField(primary_key=True)

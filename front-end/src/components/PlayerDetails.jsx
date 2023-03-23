@@ -6,14 +6,20 @@ import './PrctForm.css';
 const PlayerDetails = () => {
 
    
-    const [goodAt, setGoodAt] = useState(localStorage.getItem("goodAt") == 'undefined' ? "" : localStorage.getItem("goodAt"));
-    const [whichHand, setWhichHand] = useState(localStorage.getItem("whichHand")=='undefined' ?"":localStorage.getItem("whichHand"));
+    const [goodAt, setGoodAt] = useState(localStorage.getItem("goodAt") === 'undefined' || localStorage.getItem("goodAt") === 'null' || localStorage.getItem("goodAt") === 'NaN' ? "" : localStorage.getItem("goodAt"));
+    const [whichHand, setWhichHand] = useState(localStorage.getItem("whichHand")==='undefined' || localStorage.getItem("whichHand") === 'null' || localStorage.getItem("whichHand") === 'NaN' ?"" : localStorage.getItem("whichHand"));
 
 
     let navigate = useNavigate(); 
-    const routeChange = () =>{ 
+    const routeChange = () =>{
+        if (!goodAt || !goodAt === "" || goodAt === "NaN" || goodAt === "null" || goodAt === "undefined"){
+            return alert("Good At is required.")
+        } 
+        if (!whichHand || !whichHand === "" || whichHand === "NaN" || whichHand === "null" || whichHand === "undefined"){
+            return alert("Which Hand Player is required.")
+        } 
         let path = '/merchendisedetails';
-        localStorage.setItem('goodAt',goodAt);
+        localStorage.setItem('goodAt', goodAt);
         localStorage.setItem('whichHand', whichHand);
         navigate(path);
     }
@@ -28,8 +34,14 @@ const PlayerDetails = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        localStorage.setItem('goodAt',goodAt);
-        localStorage.setItem('whichHand', whichHand);
+        if (!goodAt || goodAt === "" || goodAt === "NaN" || goodAt === "null" || goodAt === "undefined"){
+            return alert("Good At is required.")
+        } 
+        if (!whichHand || whichHand === "" || whichHand === "NaN" || whichHand === "null" || whichHand === "undefined"){
+            return alert("Which Hand Player is required.")
+        }
+        localStorage.setItem('goodAt', goodAt === 'undefined' || goodAt === 'NaN' || goodAt === 'null' ? '' : goodAt );
+        localStorage.setItem('whichHand', whichHand === 'undefined' || whichHand === 'NaN' || whichHand || 'null' ? '' : whichHand );
     }
 
 
@@ -37,7 +49,7 @@ const PlayerDetails = () => {
     <div className="row">
         <section className="section">
             <header>
-                <h3>Registeration for HPL</h3>
+                <h3>Registration for HPL</h3>
                 <h5>Player Details</h5>
             </header>
             <main>

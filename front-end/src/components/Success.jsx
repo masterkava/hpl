@@ -1,5 +1,5 @@
 import React from 'react';
-import HPLLogo from '../media/images/hpl_logo.JPG';
+import HPLLogo from '../media/images/hpl-logo.jpg';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -28,7 +28,7 @@ const Success = () => {
         <section className="section" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center'}} >
         <header style={{dispay: 'flex', justifyContent: 'center'}} >
                 <h3>Congratulations</h3> 
-                <h3 style={{color: 'rgb(199, 119, 54)'}} >
+                <h3 style={{color: '#1e105c'}} >
                 {localStorage.getItem("fname")} 
                 </h3>
                 <h3>
@@ -38,7 +38,7 @@ const Success = () => {
                 registered for
                 </h3>
                 <h3>
-                    HariPrabodham Premier Leaque. 
+                    HariPrabodham Premier League. 
                 </h3>
                 <img src={HPLLogo} alt="HPL Logo" style={{height: '300px', width:'300px', position:'relative'}} ></img>
         </header>

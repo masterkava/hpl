@@ -5,31 +5,96 @@ import './PrctForm.css';
 
 const PrctForm = () => {
 
-    const [fname, setFname] = useState(localStorage.getItem("fname") == 'undefined' ? "" : localStorage.getItem("fname"))
-    const [lname, setLname] = useState(localStorage.getItem("lname") == 'undefined' ? "" : localStorage.getItem("lname"))
-    const [yuvakType, setYuvakType] = useState(localStorage.getItem("yuvakType") == 'undefined' ? "" : localStorage.getItem("yuvakType"))
-    const [phoneNumber, setPhoneNumber] = useState(localStorage.getItem("phoneNumber") == 'undefined' ? "" : localStorage.getItem("phoneNumber"))
-    const [sabhaLocation, setSabhaLocation] = useState(localStorage.getItem("sabhaLocation") == 'undefined' ? "" : localStorage.getItem("sabhaLocation"))
-    const [birthDate, setBirthDate] = useState(localStorage.getItem("birthDate") == 'undefined' ? "" : localStorage.getItem("birthDate"))
-    const [reference, setReference] = useState(localStorage.getItem("reference") == 'undefined' ? "" : localStorage.getItem("reference"))
+    const [fname, setFname] = useState( localStorage.getItem("fname") === 'undefined' || localStorage.getItem("fname") === 'null' || localStorage.getItem("fname") === 'NaN' ? "" : localStorage.getItem("fname"))
+    const [lname, setLname] = useState(localStorage.getItem("lname") === 'undefined' || localStorage.getItem("lname") === 'null' || localStorage.getItem("lname") === 'NaN' ? "" : localStorage.getItem("lname"))
+    const [yuvakType, setYuvakType] = useState(localStorage.getItem("yuvakType") === 'undefined' || localStorage.getItem("yuvakType") === 'null' || localStorage.getItem("yuvakType") === 'NaN' ? "" : localStorage.getItem("yuvakType"))
+    const [phoneNumber, setPhoneNumber] = useState(localStorage.getItem("phoneNumber") === 'undefined' || localStorage.getItem("phoneNumber") === 'null' || localStorage.getItem("phoneNumber") === 'NaN' ? "" : localStorage.getItem("phoneNumber"))
+    const [sabhaLocation, setSabhaLocation] = useState(localStorage.getItem("sabhaLocation") === 'undefined' || localStorage.getItem("sabhaLocation") === 'null' || localStorage.getItem("sabhaLocation") === 'NaN' ? "" : localStorage.getItem("sabhaLocation"))
+    const [birthDate, setBirthDate] = useState(localStorage.getItem("birthDate") === 'undefined' || localStorage.getItem("birthDate") === 'null' || localStorage.getItem("birthDate") === 'NaN' ? "" : localStorage.getItem("birthDate"))
+    const [reference, setReference] = useState(localStorage.getItem("reference") === 'undefined' || localStorage.getItem("reference") === 'null' || localStorage.getItem("reference") === 'NaN' ? "" : localStorage.getItem("reference"))
 
 
     let navigate = useNavigate(); 
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if ( !fname || fname === "" || fname === "NaN" || fname === "null" || fname === "undefined"){
+            return alert("First Name is required.")
+        }
+        if ( !lname || lname === "" || lname === "NaN" || lname === "null" || lname === "undefined"){
+            return alert("Last Name is required.")
+        }
+        if ( !yuvakType || yuvakType === "" || yuvakType === "NaN" || yuvakType === "null" || yuvakType === "undefined"){
+            return alert("yuvakType is required.")
+        }
+        if (!phoneNumber || phoneNumber === "" || phoneNumber === "NaN" || phoneNumber === "null" || phoneNumber === "undefined"){
+            return alert("phoneNumber is required.")
+        }
+        if (!sabhaLocation || sabhaLocation === "" || sabhaLocation === "NaN" || sabhaLocation === "null" || sabhaLocation === "undefined"){
+            return alert("sabhaLocation is required.")
+        }
+        if (!birthDate || birthDate === "" || birthDate === "NaN" || birthDate === "null" || birthDate === "undefined"){
+            return alert("birthDate is required.")
+        }
+        if (!reference || reference === "" || reference === "NaN" || reference === "null" || reference === "undefined"){
+            return alert("reference is required.")
+        }
+        console.log(fname);
+        console.log(lname);
+        console.log(yuvakType);
+        console.log(phoneNumber);
+        console.log(sabhaLocation);
+        console.log(reference);
+        console.log(sabhaLocation);
+        localStorage.setItem("fname", fname === 'undefined' || fname === 'null' || fname === 'NaN' ? '' : fname );
+        localStorage.setItem("lname", lname === 'undefined' || lname === 'null' || lname === 'NaN' ? '' : lname );
+        localStorage.setItem("yuvakType", yuvakType === 'undefined' || yuvakType === 'null' || yuvakType === 'NaN' ? '' : yuvakType  );
+        localStorage.setItem("phoneNumber", phoneNumber === 'undefined' || phoneNumber === 'null' || phoneNumber === 'NaN' ? '' : parseInt(phoneNumber));
+        localStorage.setItem("sabhaLocation", sabhaLocation === 'undefined' || sabhaLocation === 'null' || sabhaLocation === 'NaN' ? '' : sabhaLocation);
+        localStorage.setItem("reference", reference === 'undefined' || reference === 'null' || reference === 'NaN' ? '' : reference);
+        localStorage.setItem("birthDate", birthDate === 'undefined' || birthDate === 'null' || birthDate === 'NaN' ? '' : birthDate)
+        
+        console.log("Final output: ", op);
+    }
+
     const routeChange = () =>{ 
         let path = '/playerdetails';
-        localStorage.setItem("fname", fname);
-        localStorage.setItem("lname", lname);
-        localStorage.setItem("yuvakType", yuvakType);
-        localStorage.setItem("phoneNumber", parseInt(phoneNumber));
-        localStorage.setItem("sabhaLocation", sabhaLocation);
-        localStorage.setItem("reference", reference);
-        localStorage.setItem("birthDate", birthDate);
+        if ( !fname || fname === "" || fname === "NaN" || fname === "null" || fname === "undefined"){
+            return alert("First Name is required.")
+        }
+        if ( !lname || lname === "" || lname === "NaN" || lname === "null" || lname === "undefined"){
+            return alert("Last Name is required.")
+        }
+        if ( !yuvakType || yuvakType === "" || yuvakType === "NaN" || yuvakType === "null" || yuvakType === "undefined"){
+            return alert("yuvakType is required.")
+        }
+        if (!phoneNumber || phoneNumber === "" || phoneNumber === "NaN" || phoneNumber === "null" || phoneNumber === "undefined"){
+            return alert("phoneNumber is required.")
+        }
+        if (!sabhaLocation || sabhaLocation === "" || sabhaLocation === "NaN" || sabhaLocation === "null" || sabhaLocation === "undefined"){
+            return alert("sabhaLocation is required.")
+        }
+        if (!birthDate || birthDate === "" || birthDate === "NaN" || birthDate === "null" || birthDate === "undefined"){
+            return alert("birthDate is required.")
+        }
+        if (!reference || reference === "" || reference === "NaN" || reference === "null" || reference === "undefined"){
+            return alert("reference is required.")
+        }
+
+        localStorage.setItem("fname", fname === 'undefined' || fname === 'null' || fname === 'NaN' ? '' : fname );
+        localStorage.setItem("lname", lname === 'undefined' || lname === 'null' || lname === 'NaN' ? '' : lname );
+        localStorage.setItem("yuvakType", yuvakType === 'undefined' || yuvakType === 'null' || yuvakType === 'NaN' ? '' : yuvakType  );
+        localStorage.setItem("phoneNumber", phoneNumber === 'undefined' || phoneNumber === 'null' || phoneNumber === 'NaN' ? '' : parseInt(phoneNumber));
+        localStorage.setItem("sabhaLocation", sabhaLocation === 'undefined' || sabhaLocation === 'null' || sabhaLocation === 'NaN' ? '' : sabhaLocation);
+        localStorage.setItem("reference", reference === 'undefined' || reference === 'null' || reference === 'NaN' ? '' : reference);
+        localStorage.setItem("birthDate", birthDate === 'undefined' || birthDate === 'null' || birthDate === 'NaN' ? '' : birthDate);
+        
         navigate(path);
     }
 
     const handleFnameChange = (event) => {
         setFname(event.target.value);
-        console.log(fname);
+        console.log("First Name", fname);
     }
 
     const handleLnameChange = (event) => {
@@ -72,24 +137,7 @@ const PrctForm = () => {
         birthDate: birthDate
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        console.log(fname);
-        console.log(lname);
-        console.log(yuvakType);
-        console.log(phoneNumber);
-        console.log(sabhaLocation);
-        console.log(reference);
-        console.log(sabhaLocation);
-        localStorage.setItem("fname", fname);
-        localStorage.setItem("lname", lname);
-        localStorage.setItem("yuvakType", yuvakType);
-        localStorage.setItem("phoneNumber", parseInt(phoneNumber));
-        localStorage.setItem("sabhaLocation", sabhaLocation);
-        localStorage.setItem("reference", reference);
-        localStorage.setItem("birthDate", birthDate)
-        console.log("Final output: ", op);
-    }
+
 
 
   return (
@@ -105,8 +153,6 @@ const PrctForm = () => {
                     <div className="form-item-double box-item">
                         <div className="form-item ">
                             <input type="text" name="fname" placeholder="First Name" value={fname} onChange={handleFnameChange} data-required data-number/>
-                            <small className="errorReq"><i className="fa fa-asterisk" aria-hidden="true"></i> required field</small>
-                            <small className="errorNum"><i className="fa fa-asterisk" aria-hidden="true"></i> must be a number</small>
                         </div>
                         <div className="form-item">
                             <input type="text" name="lname" placeholder="Last Name" value={lname} onChange={handleLnameChange} data-required data-number/>
@@ -135,7 +181,7 @@ const PrctForm = () => {
 
                     {/* Mob no */}
                     <div className="form-item box-item">
-                        <input type="text" name="phone" placeholder="Phone" value={phoneNumber} data-required data-number data-count="10" onChange={handlePhoneNumberChange} />
+                        <input type="text" name="phone" placeholder="Mobile Number" value={phoneNumber} data-required data-number data-count="10" onChange={handlePhoneNumberChange} />
                         <small className="errorReq"><i className="fa fa-asterisk" aria-hidden="true"></i> required field</small>
                         <small className="errorNum"><i className="fa fa-asterisk" aria-hidden="true"></i> must be a number</small>
                         <small className="errorChar"><i className="fa fa-asterisk" aria-hidden="true"></i> must be 10 digits</small>

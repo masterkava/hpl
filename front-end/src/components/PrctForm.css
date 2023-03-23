@@ -14,7 +14,8 @@
 	 font-size: 16px;
 	 line-height: 1.428571429;
 	 font-weight: 400;
-	 color: #fff;
+	 color: #161515;
+	 /* color: #fff; */
 }
  .row {
 	 display: flex;
@@ -22,7 +23,7 @@
 	 justify-content: center;
 }
  .section {
-	 background-color: #3d4067;
+	 background-color: #be8556;
 	 position: relative;
 	 overflow: hidden;
 	 display: flex;
@@ -46,11 +47,15 @@
 	 font-size: 44px;
 	 font-weight: 700;
 	 margin-bottom: 8px;
+	color: rgb(183, 195, 233);
+
 }
  header > h4 {
 	 font-size: 22px;
 	 font-weight: 400;
 	 letter-spacing: 1px;
+	color: rgb(183, 195, 233);
+
 }
 
 header > h5 {
@@ -92,7 +97,8 @@ header > h5 {
 	 flex-direction: column;
 }
  .label {
-	 color: rgba(226, 227, 232, .75);
+	color: #161515;
+	 /* color: rgba(226, 227, 232, .75); */
 	 font-size: 16px;
 }
  small {
@@ -101,9 +107,10 @@ header > h5 {
  small.errorOnce {
 	 margin-top: 2px;
 }
- .form-item input[type="text"], .form-item input[type="number"], .form-item input[type="email"] {
+ .form-item input[type="text"], .form-item input[type="number"], .form-item input[type="password"], .form-item input[type="email"] {
 	 display: block;
-	 color: #e2e3e8;
+	 color: #161515;
+	 /* color: #e2e3e8; */
 	 font-size: 16px;
 	 width: 100%;
 	 background-color: transparent;
@@ -211,7 +218,7 @@ header > h5 {
 	 height: 800px;
 	 margin-top: -600px;
 	 margin-left: -400px;
-	 background: #252e45;
+	 background: #453d25;
 	 border-radius: 40%;
 	 animation: shift 20s infinite linear;
 	 z-index: 0;
@@ -231,7 +238,7 @@ header > h5 {
 
 /* nav */
 .topnav {
-	background-color: #1e105c;
+	background-color: #a15a18;
 	overflow: hidden;
   }
   

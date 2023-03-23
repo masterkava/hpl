@@ -12,4 +12,20 @@ class ProfileSerializerRegistration(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = ['id', 'fname', 'lname', 'mobile_number', 'sabha_location', 'date_of_birth', 'yuvak_type', 'reference', 'good_at', 'hand', 'tshirt_size', 'tshirt_name']
-        
+
+
+class BasicDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ['id', 'fname', 'lname', 'mobile_number', 'sabha_location', 'date_of_birth', 'reference']
+
+
+class PlayerDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ['id', 'good_at', 'hand', 'tshirt_size', 'tshirt_name']
+
+class ProfilePhotosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ['id', 'fname', 'lname', 'profile', 'auction']

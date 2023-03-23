@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { DataGrid, GridRowsProp, GridColDef, GridToolbar  } from '@mui/x-data-grid';
+import { DataGrid, GridToolbar  } from '@mui/x-data-grid';
 
 // local
-//const getReqApi = 'http://127.0.0.1:8000/api/profile/';
+// const getReqApi = 'http://127.0.0.1:8000/api/profile/';
 // prod
 const getReqApi = 'http://65.0.151.183:8000/api/profile/';
 
@@ -25,8 +25,18 @@ const columns = [
 export default function Dashboard() {
 
     const [data, setData] = useState([]);
+    const [authStr, setAuthStr] = useState("");
+
+    const handleAuthSubmit = (props) => {
+      setAuthStr(localStorage.getItem("authStr"));
+    }
+
+    const handleAuthChange = (e) => {
+      localStorage.setItem("authStr",e.target.value);
+    }
 
     useEffect( () => {
+      if (authStr){
         fetch(getReqApi)
         .then((response)=> response.json())
         .then((data) => {
@@ -34,11 +44,9 @@ export default function Dashboard() {
             setData(data);
         })
         .catch((err)=> {console.log(err.message)})
-    }, [])
+      }
+    }, [authStr])
 
-    const handleHomeClick = () => {
-
-    }
 
     // const handleEvent = (event) => {
     //     fetch('http://127.0.0.1:8000/api/profile/'+event.id+'/', { method: 'DELETE' })
@@ -51,35 +59,67 @@ export default function Dashboard() {
     //         .then(() => console.log("removed successfully."))//setStatus('Delete successful'));
     
     // // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    // }, [removeItem]);    
+    // }, [removeItem]);
 
-  return (
-    <>
-        
-    <div style={{ height: 900, width: '100%' }}>
-      <DataGrid rows={data} columns={columns} 
-        sx={{
-            boxShadow: 2,
-            border: 2,
-            fontWeight: 600,
-            fontSize:' 12px',
-            fontFamily: 'PT Sans',
-            borderColor: 'primary.light',
-            '& .MuiDataGrid-cell:hover': {
-                color: 'primary.main',
-            },
-        }} 
-        slots={{
-            toolbar: GridToolbar,
-          }}
-          initialState={{
-            pagination: { paginationModel: { pageSize: 15 } },
-          }}
-          pageSizeOptions={[ 15, 30, 45]}
-        //   onRowClick={handleEvent}
-  />
-    </div>
-    </>
 
-  );
+    
+  
+
+  { if (authStr !== 'hpl.fun.369'){
+    return (<>
+      <section className="section">
+            <header>
+                <h4>Please Enter auth key.</h4>
+            </header>
+            <main>
+                <form onSubmit={handleAuthSubmit} >
+
+                    <div className="form-item box-item">
+                        <input type="password" name="reference" placeholder="Auth key" data-required onChange={handleAuthChange} />
+                        <small className="errorReq"><i className="fa fa-asterisk" aria-hidden="true"></i> required field</small>
+                    </div>
+                    
+                    <div className='buttons__div' >
+                        <div className="form-item">
+                            <button type='submit' id="submit" className="submit">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
+            </main>
+        </section>
+
+    </>)
+  } else {
+    return (
+      <>
+          
+        <div style={{ height: 900, width: '100%' }}>
+          <DataGrid rows={data} columns={columns} 
+            sx={{
+                boxShadow: 2,
+                border: 2,
+                fontWeight: 600,
+                fontSize:' 12px',
+                fontFamily: 'PT Sans',
+                borderColor: 'primary.light',
+                '& .MuiDataGrid-cell:hover': {
+                    color: 'primary.main',
+                },
+            }} 
+            slots={{
+                toolbar: GridToolbar,
+              }}
+              initialState={{
+                pagination: { paginationModel: { pageSize: 15 } },
+              }}
+              pageSizeOptions={[ 15, 30, 45]}
+            //   onRowClick={handleEvent}
+          />
+        </div>
+      </>
+  
+    );
+  } } 
+
 }
