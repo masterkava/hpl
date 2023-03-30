@@ -24,3 +24,25 @@ class Profile(models.Model):
     auction = models.FileField(blank=True, default='', upload_to=upload_path, verbose_name='auction')
     availibility = models.CharField(max_length=255, blank=True, null=True)
     password = models.CharField(max_length=255, blank=True, null=True, default='')
+
+
+class AuctionPlayersDetails(models.Model):
+    id = models.AutoField(primary_key=True)
+    player_id = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    category = models.CharField(max_length=255, blank=True, null=True, default="")
+    is_sold = models.BooleanField(blank=True, null=True, default=0)
+    sold_to = models.CharField(max_length=255, blank=True, null=True, default="")
+    sold_on = models.IntegerField(blank=True, null=True, default=0)
+
+class TeamSelection(models.Model):
+    id = models.AutoField(primary_key=True)
+    fname = models.CharField(max_length=255)
+    lname = models.CharField(max_length=255)
+    category = models.CharField(max_length=255, blank=True, null=True, default="")
+    team_name = models.CharField(max_length=255, default="", blank=True, null=True)
+
+
+class TeamAuthentication(models.Model):
+    id = models.AutoField(primary_key=True)
+    team_name = models.CharField(max_length=255)
+    team_password = models.CharField(max_length=255)

@@ -9,12 +9,15 @@ import MerchendiseDetails from './components/MerchendiseDetails'
 import FinalDetails from './components/FinalDetails'
 import Success from './components/Success'
 import Dashboard from './components/Dashboard'
-import Auction from './components/Auction'
+import Auction from './components/Auctions/Auction'
 import Profile from './components/Profile';
 import UploadPhotos from './components/UploadPhotos';
 import { ProfilePage } from './components/ProfilePage'
 import ProfileNotRegistered from './components/ProfileNotRegistered';
-import ProfileUploadSuccess from './components/ProfileUploadSuccess'
+import ProfileUploadSuccess from './components/ProfileUploadSuccess';
+import AuctionSubmit from './components/Auctions/AuctionSubmit';
+import CaptainScreen from './components/Auctions/CaptainScreen';
+import TeamSelection from './components/Auctions/TeamSelection'
 import '../src/components/PrctForm.css';
 
 // import { Link } from 'react-router-dom'
@@ -44,7 +47,10 @@ function Root() {
             <Link className=  { activeMenu === 'home' ? 'active' : '' } onClick={ () => {setActiveMenu('home')} } to="/">Home</Link>
             <Link className=  { activeMenu === 'dashboard' ? 'active' : '' } onClick={ () => {setActiveMenu('dashboard')} } to="/dashboard">Dashboard</Link>
             <Link className=  { activeMenu === 'profile' ? 'active' : '' } onClick={ () => {setActiveMenu('profile')} } to="/profile">Profile</Link>
-            {/* <Link className=  { activeMenu === 'auction' ? 'active' : '' } onClick={ () => {setActiveMenu('auction')} } to="/auction">Auction</Link> */}
+            <Link className=  { activeMenu === 'auction' ? 'active' : '' } onClick={ () => {setActiveMenu('auction')} } to="/auction">Auction</Link>
+            <Link className=  { activeMenu === 'auction_submit' ? 'active' : '' } onClick={ () => {setActiveMenu('auction_submit')} } to="/auctionsubmit">AuctionSubmit</Link>
+            <Link className=  { activeMenu === 'captain_screen' ? 'active' : '' } onClick={ () => {setActiveMenu('captain_screen')} } to="/captainscreen">CaptainScreen</Link>
+            <Link className=  { activeMenu === 'teamselection' ? 'active' : '' } onClick={ () => {setActiveMenu('teamselection')} } to="/teamselection">TeamSelection</Link>
       </div>
       <Routes>
         <Route exact path="/" element={<PrctForm />} />
@@ -56,6 +62,10 @@ function Root() {
         <Route path="profile" element={ <UploadPhotos/> } />
         <Route path="profile_not_registered" element={ <ProfileNotRegistered/> } />
         <Route path="profile/profile_success" element={ <ProfileUploadSuccess/> } />
+        <Route path="auction" element={ <Auction/> } />
+        <Route path="auctionsubmit" element={ <AuctionSubmit/> } />
+        <Route path="captainscreen" element={ <CaptainScreen/> } />
+        <Route path="teamselection" element={ <TeamSelection/> } />
 
 
         {/* <Route path="profile_page" element={ <ProfilePage/> } /> */}

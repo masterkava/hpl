@@ -2,10 +2,12 @@ import React, {useState, useRef, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import './PrctForm.css';
 
-// const getPhotosDetailsApi = 'http://65.0.151.183:8000/profile_photos/'
-const getPhotosDetailsApi =  "http://127.0.0.1:8000/profile_photos/"
-const API = "http://127.0.0.1:8000/"
+// const getPhotosDetailsApi = 'http://65.0.151.183:8000/profile_mobile/'
+// const PoutProfilephotosApi = 'http://65.0.151.183:8000/profile_photos/'
 // const API = "http://65.0.151.183:8000"
+const getPhotosDetailsApi =  "http://127.0.0.1:8000/profile_mobile/"
+const PoutProfilephotosApi =  "http://127.0.0.1:8000/profile_photos/"
+const API = "http://127.0.0.1:8000/"
 
 
 const UploadPhotos = () => {
@@ -118,7 +120,7 @@ const UploadPhotos = () => {
 
 
         if (profile && auction){
-            fetch( getPhotosDetailsApi+data.id+"/", {
+            fetch( PoutProfilephotosApi+data.id+"/", {
                 method: 'PUT',
                 'Content-type': 'multipart/form-data',
                 body: formData
